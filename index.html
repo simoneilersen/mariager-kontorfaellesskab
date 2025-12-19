@@ -232,25 +232,8 @@
 
       function showImage(index, prevIndex) {
         var currentItem = heroImages[index];
-        var prevItem = heroImages[prevIndex];
-
-        // Opdatér baggrundsbilledet til det forrige
-        heroPrevImg.src = prevItem.src;
-        heroPrevImg.alt = prevItem.alt + ' (forrige billede)';
-
-        // Forgrundsbilledet starter gennemsigtigt uden transition,
-        // får derefter ny kilde og fades blødt ind.
-        heroImg.style.transition = 'none';
-        heroImg.style.opacity = 0;
         heroImg.src = currentItem.src;
         heroImg.alt = currentItem.alt;
-
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            heroImg.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            heroImg.style.opacity = 1;
-          });
-        });
       }
 
       // Initial visning – start med sidste billede som "baggrund"
